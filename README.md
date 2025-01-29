@@ -27,24 +27,22 @@ Guía de Uso de la API
 
 ### Autenticación
 
-Copy
-
-`POST /api/register
-Body:
+`POST /api/register`
+`Body:
 {
     "name": "string",
     "email": "string",
     "password": "string"
-}
+}`
 
-POST /api/login
-Body:
+`POST /api/login`
+`Body:
 {
     "email": "string",
     "password": "string"
-}
+}`
 
-POST /api/logout (requiere autenticación)
+`POST /api/logout (requiere autenticación)
 Header: Authorization: Bearer {token}`
 
 ### Endpoints Exclusivos para Administradores
@@ -53,16 +51,12 @@ Todos estos endpoints requieren autenticación y rol de administrador.
 
 #### Gestión de Usuarios
 
-Copy
-
-`GET    /api/admin/users         - Listar usuarios (paginado)
-POST   /api/admin/users         - Crear usuario
-PUT    /api/admin/users/{id}    - Actualizar usuario
-DELETE /api/admin/users/{id}    - Eliminar usuario`
+`GET    /api/admin/users         - Listar usuarios (paginado)`
+`POST   /api/admin/users         - Crear usuario`
+`PUT    /api/admin/users/{id}    - Actualizar usuario`
+`DELETE /api/admin/users/{id}    - Eliminar usuario`
 
 #### Estadísticas
-
-Copy
 
 `GET /api/admin/statistics`
 
@@ -72,43 +66,35 @@ El endpoint de estadísticas acepta los siguientes parámetros:
 
 #### 1\. Estadísticas Diarias
 
-Copy
+`GET /api/admin/statistics?period=daily&date=2024-01-28`
 
-`GET /api/admin/statistics?period=daily&date=2024-01-28
-
-Respuesta:
-- Total de usuarios registrados ese día
-- Desglose por hora (0-23 horas)`
+`Respuesta:`
+`- Total de usuarios registrados ese día`
+`- Desglose por hora (0-23 horas)`
 
 #### 2\. Estadísticas Semanales (Últimos 7 días)
 
-Copy
+`GET /api/admin/statistics?period=weekly`
 
-`GET /api/admin/statistics?period=weekly
-
-Respuesta:
-- Total de usuarios de la semana
-- Desglose diario de los últimos 7 días`
+`Respuesta:`
+`- Total de usuarios de la semana`
+`- Desglose diario de los últimos 7 días`
 
 #### 3\. Estadísticas Mensuales (Últimos 30 días)
 
-Copy
+`GET /api/admin/statistics?period=monthly`
 
-`GET /api/admin/statistics?period=monthly
-
-Respuesta:
-- Total de usuarios del mes
-- Desglose diario de los últimos 30 días`
+`Respuesta:`
+`- Total de usuarios del mes`
+`- Desglose diario de los últimos 30 días`
 
 #### 4\. Período Personalizado
 
-Copy
+`GET /api/admin/statistics?period=custom&start_date=2024-01-01&end_date=2024-01-31`
 
-`GET /api/admin/statistics?period=custom&start_date=2024-01-01&end_date=2024-01-31
-
-Respuesta:
-- Total de usuarios del período
-- Desglose diario entre las fechas seleccionadas`
+`Respuesta:`
+`- Total de usuarios del período`
+`- Desglose diario entre las fechas seleccionadas`
 
 Seguridad
 ---------
