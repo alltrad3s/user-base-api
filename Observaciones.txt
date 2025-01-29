@@ -1,0 +1,4 @@
+Cuando instalamos Sanctum, tenemos que ejecutar
+php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+
+Esto hace que Sanctum funcione despues de realizar la instalacion.
